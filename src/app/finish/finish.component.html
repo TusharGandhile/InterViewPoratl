@@ -1,0 +1,21 @@
+<div class="container">
+    <div class="row">
+        <h1>My Interview Portal</h1>
+        <hr>
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">{{this.check?.name}} - Result
+                    <button routerLink="/home" class="pull-right btn btn-primary">Go Home</button>
+                </div>
+                
+                <div class="panel-body">
+                
+                        <h2 class="">Total no of Questions: {{ this.check?.questions.length}}</h2>
+                        <h3 class="text-success">Correct Answers: {{correct}} 
+                        <span class="text-danger">Wrong Answers: {{ this.check?.questions.length - correct}}</span></h3>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

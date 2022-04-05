@@ -1,0 +1,37 @@
+<div class="container">
+    <div class="row">
+    <h1>My Interview Portal</h1>
+        <hr>
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">{{tests}}</div>
+                <div class="panel-body">
+                    <form >
+                        <label class="question">{{questions[currentQuestion]?.questionText}}</label>
+                        <div class="container" *ngFor="let option of questions[currentQuestion]?.options;index as i">
+                            
+                            <label class="row">
+
+                                
+                                <input *ngIf="questions[currentQuestion].type!='Multiple-Response'" [checked]="ans[currentQuestion]==i" type="radio" class="radio" name="option" value={{option}}>
+                                <input *ngIf="questions[currentQuestion].type=='Multiple-Response'" [checked]="ans[currentQuestion][i]==i"  type="checkbox" class="checkbox" name="option" value={{option}}> 
+                                {{option}}
+                            </label>
+                            <!-- <span>{{option}}</span> -->
+                        </div>
+                        
+                    </form>
+                </div>
+                <div class="panel-footer">
+                    <ng-container *ngIf="currentQuestion>0">
+                    <a class="btn btn-success" (click)="prevQuestion()">Previous</a></ng-container>
+                    <ng-container *ngIf="currentQuestion!=questions.length-1">
+                    <a class="pull-right btn btn-success" (click)="nextQuestion()" >Next</a></ng-container>
+                    <ng-container *ngIf="currentQuestion==questions.length-1">
+                    <a (click)="finishtest()" class="pull-right btn btn-danger">Finish</a></ng-container>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
